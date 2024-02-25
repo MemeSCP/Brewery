@@ -4,10 +4,10 @@ import com.dre.brewery.*;
 import com.dre.brewery.filedata.BConfig;
 import com.dre.brewery.recipe.BRecipe;
 import org.bstats.bukkit.Metrics;
-import org.bstats.charts.AdvancedPie;
-import org.bstats.charts.DrilldownPie;
-import org.bstats.charts.SimplePie;
-import org.bstats.charts.SingleLineChart;
+import org.bstats.bukkit.Metrics.AdvancedPie;
+import org.bstats.bukkit.Metrics.DrilldownPie;
+import org.bstats.bukkit.Metrics.SimplePie;
+import org.bstats.bukkit.Metrics.SingleLineChart;
 import org.bukkit.Bukkit;
 
 import java.util.HashMap;
@@ -44,7 +44,7 @@ public class Stats {
 
 	public void setupBStats() {
 		try {
-			Metrics metrics = new Metrics(P.p, 3494);
+			Metrics metrics = new Metrics(P.p);
 			metrics.addCustomChart(new SingleLineChart("drunk_players", BPlayer::numDrunkPlayers));
 			metrics.addCustomChart(new SingleLineChart("brews_in_existence", () -> brewsCreated));
 			metrics.addCustomChart(new SingleLineChart("barrels_built", Barrel.barrels::size));
